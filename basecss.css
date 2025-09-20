@@ -3,12 +3,6 @@ header {
     background-position: top left;
     background-size: cover; 
 }
-.photo{
-    float: left; 
-    margin: 10px;
-    width: 150px; 
-    height: 200px
-}
 nav {
     width:100%;
     padding: 10px; 
