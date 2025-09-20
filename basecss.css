@@ -1,0 +1,50 @@
+header {
+    width: 100%;
+    background-position: top left;
+    background-size: cover; 
+}
+
+nav {
+    margin: 0 20px;
+}
+caption {
+    caption-side: top;
+    font-size: 20px;
+    font-weight: bold;
+    padding-bottom: 15px;
+    text-align: center;
+}
+
+table {
+    width: 960px;
+    margin: 0 auto;
+    border-collapse: collapse;
+}
+
+th, td {
+    border: 1px solid #ccc; 
+    padding: 15px; 
+    text-align: center;
+}
+
+.highlighted {
+    background-color: #FFEBEE;
+}
+
+.one {
+    background-color: #FFFAD8;
+}
+
+.two {
+    background-color: #D4FFC4;
+}
+
+.content {
+    max-width: 960px;
+    margin: 20px auto;
+    padding: 10px;
+}
+
+footer {
+    width: 100%;
+}
