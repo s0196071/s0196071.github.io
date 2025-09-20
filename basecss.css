@@ -9,13 +9,13 @@ nav {
     height: 200px;
     margin: 20px;
 }
-.photo{
+#photo {
     width: 152px; 
     height: 200px; 
     margin: 10px; 
     float: left;
 }
-#menu{
+#menu {
     text-align: center;
 }
 caption {
