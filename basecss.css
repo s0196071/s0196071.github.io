@@ -15,6 +15,9 @@ nav {
     padding: 10px; 
     height: 290px;
 }
+.menu{
+    padding: 10px;
+}
 caption {
     caption-side: top;
     font-size: 20px;
