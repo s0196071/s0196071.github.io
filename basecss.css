@@ -16,7 +16,9 @@ nav {
     height: 260px;
     margin: 20px;
 }
-
+#menu{
+    text-align: center;
+}
 caption {
     caption-side: top;
     font-size: 20px;
