@@ -1,10 +1,11 @@
 header {
+    position: relative;
     width: 100%;
     background-position: top left;
     background-size: cover; 
 }
 nav {
-    width:80%;
+    width:90%;
     height: 100px;
     margin: 20px auto;
     padding: 15px 20px;
