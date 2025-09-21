@@ -3,6 +3,7 @@ header {
     width: 100%;
     background-position: top left;
     background-size: cover; 
+    border-radius: 8px;
 }
 nav {
     width: 100%;
@@ -24,10 +25,10 @@ nav {
     margin: 10px;
 }
 #name{
-    padding: 10px;
+    padding: 20px;
 }
 #name1{
-    margin: 10px;
+    margin: 20px;
 }
 #menu {
     text-align: center;
