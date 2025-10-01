@@ -78,6 +78,10 @@ footer {
     width: calc(100%-20px);
     margin: 0 auto;
     margin-top: 10px;
+    height: 50px;
+    display: flex;
+    justify-content: start;
+    align-items: center;
 }
 .container-main{
     display: flex;
