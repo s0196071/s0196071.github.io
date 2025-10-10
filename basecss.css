@@ -134,7 +134,8 @@ footer {
         padding: 10px;
         height: 60px;
         width: 400px;
-        margin-left: 700px;
+        margin-left: auto;
         justify-content: center;
+        border-radius: 10px;
     }
 }
