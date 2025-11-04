@@ -1,0 +1,254 @@
+<!DOCTYPE html>
+
+<html lang="ru">
+    <head>
+        <title> Скворцова Виктория </title>
+        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB" crossorigin="anonymous">
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous"></script>
+        <link rel="stylesheet" href="css/basecss.css" type="text/css"/>
+    </head>
+    
+    <body>
+        <header>
+            <div class="container-fluid highlighted row">
+                <div class="img-fluid col-sm-1 p-2"><img src="images/ava.jpg" class="float-start rounded img-thumbnail" alt="Мое фото"></div>
+                <div class="col-sm-11">
+                    <div class="row">
+                        <div class="fs-2 col-8 col-sm-7 pt-4 pl-3">Задание 4</div>
+                        <div class="col-4 col-sm-5 d-none d-lg-block">
+                            <nav class="navbar navbar-expand-lg navbar-dark bg-light p-1 justify-content-end">   
+                                <a class="nav-link p-3" href="https://s0196071.github.io">Главная</a>
+                                <a class="nav-link p-3" href="/index.html">Информация</a>
+                                <a class="nav-link p-3" href="https://t.me/kisyayo">Мои контакты</a>
+                                <a class="nav-link p-3" href="C:\Users\Admin\Documents\NetBeansProjects\exercise4\public_html\newhtml.html">Калькулятор</a>
+                            </nav>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="container-fluid mt-2 p-1 bg-light d-block d-lg-none">
+                <div class="fs-2 p-2 ml-4">Меню</div>
+                <nav class="navbar-expand-lg navbar-dark p-1 justify-content-start">   
+                    <ul class="list-unstyled ml-3">
+                        <li><a class="nav-link" href="https://s0196071.github.io">Главная</a></li>
+                        <li><a class="nav-link" href="/index.html">Информация</a></li>
+                        <li><a class="nav-link" href="https://t.me/kisyayo">Мои контакты</a></li>
+                        <li><a class="nav-link" href="C:\Users\Admin\Documents\NetBeansProjects\exercise4\public_html\newhtml.html">Калькулятор</a></li>
+                    </ul>
+                </nav>
+            </div>
+        </header>
+    
+        <div class="container mt-4">
+            <div class="col col-md-8 offset-md-2 d-flex flex-column">
+                <div class="highlighted p-4 mt-3 order-2 order-lg-1">
+                    <div class="fs-3"> Гиперссылки </div>
+                <ul>
+                    <li><a href="http://kubsu.ru"> Абсолютная гиперссылка на главную страницу сайта kubsu.ru </a></li>
+                    <li><a href="https://kubsu.ru"> Абсолютная гиперссылка на главную сайта kubsu.ru в протоколе https </a></li>
+                    <li><a href="https://kubsu.ru"> 
+                            <img class="img-thumbnail"
+                                 src="images/kubik.jpg" 
+                                 alt="Ссылка-изображение"
+                                 id="a1"
+                                 width="300"
+                                 height="200">  
+                    </a></li>
+                    <li><a href="/index.html"> Сокращенная ссылка на внутреннюю страницу</a></li>
+                    <li><a href="/"> Сокращённая ссылка на главную страницу </a></li>
+                    <li><a href="#a1"> Ссылка на фрагмент текущей страницы </a></li>
+                    <li><a href="/index?size=m?color=black?page=1"> Ссылка с тремя параметрами в URL </a></li>
+                    <li><a href="/index?id=id"> Ссылка с параметром id в URL </a></li>
+                    <li><a href="./index.html"> Относительная ссылка на страницу в текущем каталоге </a></li>
+                    <li><a href="/about/index.html"> Относительная ссылка на страницу в каталоге about </a></li>
+                    <li><a href="../index.html"> Относительная ссылка на страницу в каталоге уровнем выше текущего </a></li>
+                    <li><a href="../../index.html"> Относительная ссылка на страницу в каталоге двумя уровнями выше </a></li>
+                    <li><a href="#a1"> Контекстная ссылка </a> в тексте абзаца </li>
+                    <li><a href="https://www.kubsu.ru/ru/node/44432"> Ссылка на фрагмент страницы стороннего сайта </a></li>
+                    <li><p> Ссылки из прямоугольных и круглых областей картинки (HTML-тег map):
+                            <map name="map"><br>
+                            <area shape="rect" 
+                                  coords="0,0,100,100" 
+                                  href="https://kubsu.ru/ru/node/1969" 
+                                  alt="Ромашка">
+                            <area shape="circle" 
+                                  coords="200,200,80" 
+                                  href="https://kubsu.ru/ru/node/1969" 
+                                  alt="Пион">
+                            <img class="img-thumbnail"
+                                 src="images/romashka.jpg" 
+                                 alt="Картинка с разными областями" 
+                                 usemap="#map"
+                                 width="300" 
+                                 height="300">
+                        </map>
+                        </p>
+                    </li>
+                    <li><a href=""> Ссылка с пустым href </a></li>
+                    <li><a> Ссылка без href </a></li>
+                    <li><a href="/no-follow" rel="nofollow"> Ссылка, по которой запрещен переход поисковикам </a></li>
+                    <li><a href="/no-index" rel="noindex"> Запрещенная ссылка для индексации поисковиками </a></li>
+                    <li>Нумерованный список ссылок с подписями title:
+                        <ol>
+                            <li><a href="/link1" title="Подсказка"> Ссылка 1 </a></li>
+                            <li><a href="/link2" title="Подсказка"> Ссылка 2 </a></li>
+                            <li><a href="/link3" title="Подсказка"> Ссылка 3 </a></li>
+                        </ol>
+                    </li>
+                    <li><a href="ftp://username:password@example.com/path/to/file"> Ссылка на файл на сервере FTP с авторизацией </a></li>
+                </ul>
+            </div>
+
+            <div class="order-1 order-lg-2">
+                <table class="table table-bordered table-striped table-hover table-center caption-top">
+                    <caption class="fs-4">Мои любимые блюда</caption>
+                    <thead class="table-light">
+                        <tr>
+                            <th scope="col"> Завтрак </th>
+                            <th scope="col"> Полдник </th>
+                            <th scope="col"> Обед </th>
+                            <th scope="col"> Ужин </th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr class="table-success">
+                            <td colspan="2"> Манная каша, сырники </td>
+                            <td> Грибной суп </td>
+                            <td> Плов </td>
+                        </tr>
+                        <tr class="table-warning">
+                            <td> Блины с творогом </td>
+                            <td> Омлет </td>
+                            <td> Овощной салат </td>
+                            <td> Куриные крылышки </td>
+                        </tr>
+                        <tr class="table-success">
+                            <td> Кофе и слойка с малиной </td>
+                            <td> Сэндвич </td>
+                            <td> Пирог киш-лорен </td>
+                            <td> Жареный картофель </td>
+                        </tr>
+                        <tr class="table-warning">
+                            <td rowspan="3"> Йогурт с фруктами </td>
+                            <td> Чай с ягодами </td>
+                            <td> Суп с фрикадельками </td>
+                            <td> Котлеты </td>
+                        </tr>
+                        <tr class="table-success">
+                            <td> Штрудель с яблоками </td>
+                            <td> Булочка с картофелем </td>
+                            <td> Запечённая курица </td>
+                        </tr>
+                        <tr class="table-warning">
+                            <td colspan="2"> Пицца </td>
+                            <td> Картофельное пюре </td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+
+            <div class="order-3 order-lg-3">
+                <div class="highlighted mt-3 p-4">
+                    <form action="/html/tags/html_form_tag_action.cfm" method="POST">
+                        <div class="fs-3"> Форма </div>
+                        <div class="mb-3">
+                        <label for="exampleInputName" class="form-label">ФИО:</label> 
+                            <br>
+                            <input class="form-control" 
+                                   id="exampleInputTel" 
+                                   aria-describedby="format"
+                                   name="field-name-1"
+                                   type="text"
+                                   placeholder="Введите ваше ФИО">
+                        </div>  
+
+                        <div class="mb-3">
+                        <label for="exampleInputTel" class="form-label">Номер телефона:</label>
+                            <br>
+                            <input class="form-control" 
+                                   id="exampleInputName" 
+                                   aria-describedby="format"
+                                   name="field-tel"
+                                   type="tel"
+                                   placeholder="Введите номер телефона"> 
+                        </div>
+
+                        <div class="mb-3">
+                        <label for="exampleInputEmail" class="form-label">Email:</label>
+                            <br>
+                            <input class="form-control" 
+                                   id="exampleInputEmail" 
+                                   name="field-email"
+                                   type="email"
+                                   placeholder="Введите ваш email">
+                        </div>
+
+                        <label>
+                            Дата рождения: <br>
+                            <input name="field-date"
+                                   value="2025-01-01"
+                                   type="date"
+                                   class="form-control"
+                                   id="date"
+                                   required>
+                        </label> <br>
+
+                    <br>
+
+                    Пол:
+                    <div class="form-check">
+                        <input class="form-check-input" type="radio" name="radioDefault" id="radioDefault1">
+                        <label class="form-check-label" for="radioDefault1">
+                          Мужской
+                        </label>
+                      </div>
+                      <div class="form-check">
+                        <input class="form-check-input" type="radio" name="radioDefault" id="radioDefault2" checked>
+                        <label class="form-check-label" for="radioDefault2">
+                          Женский
+                        </label>
+                    </div>
+
+                    <br>
+
+                    <div class="col-md-4">
+                        <label for="inputState" class="form-label">Любимый язык программирования:</label>
+                        <select id="inputState" multiple class="form-select">
+                          <option value="Значение1" selected="selected"> Pascal </option>
+                            <option value="Значение2"> C </option>
+                            <option value="Значение3"> C++ </option>
+                            <option value="Значение4"> JavaScript </option>
+                            <option value="Значение5"> PHP </option>
+                            <option value="Значение6"> Python </option>
+                            <option value="Значение7"> Java </option>
+                            <option value="Значение8"> Haskel </option>
+                            <option value="Значение9"> Clojure </option>
+                            <option value="Значение10"> Prolog </option>
+                            <option value="Значение11"> Scala </option>
+                        </select>
+                    </div>
+
+                    <br>
+
+                    Биография:
+                    <div class="form-floating">
+                        <textarea class="form-control" id="floatingTextarea"></textarea>
+                        <label for="floatingTextarea">Напишите о себе...</label>
+                    </div>
+
+                    <br>
+                    <div>
+                        <input type="checkbox" class="form-check-input" id="exampleCheck1">
+                        <label class="form-check-label" for="exampleCheck1">С контрактом ознакомлен(-а)</label> 
+                    </div>
+                    <br>
+
+                    <button type="submit" class="btn btn-primary">Сохранить</button>
+                </form> 
+                </div>
+            </div>
+        </div>
+        </div>
+        <footer class="mt-4 highlighted"><p> &copy; Скворцова Виктория 2025 </p></footer>
+    </body>
+</html>
