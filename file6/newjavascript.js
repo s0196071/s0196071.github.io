@@ -95,6 +95,7 @@ window.addEventListener('DOMContentLoaded', function () {
   const radios = document.querySelectorAll('input[name="r"]');
   const selectElement = document.getElementById('prodOptions');
   const checkboxes = document.querySelectorAll('#checkboxes input[type="checkbox"]');
+  const q = document.getElementById('number1');
 
   radios.forEach(radio => radio.addEventListener('change', updatePrice));
   selectElement.addEventListener('change', updatePrice);
