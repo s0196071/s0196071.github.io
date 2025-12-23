@@ -57,7 +57,9 @@ a
 }
 .brand-down
 {
-    font-family: Edwardian Script ITC;
+    font-family: "Imperial Script", cursive;
+    font-weight: 400;
+    font-style: normal;
     font-size: 50px;
     margin-top: -35px;
 }
