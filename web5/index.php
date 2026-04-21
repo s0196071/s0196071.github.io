@@ -272,7 +272,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
             <div class="mb-3">Пол:
                 <div class="form-check">
                     <?php $genderValue = getFieldValue('gender', $userData, 'gender'); ?>
-                    <input class="form-check-input" type="radio" name="gender" id="male" value="male" <?= getFormData('gender') == 'male' ? 'checked' : '' ?>
+                    <input class="form-check-input" type="radio" name="gender" id="male" value="male" <?= ($genderValue == 'male') ? 'checked' : '' ?>>
                     <label class="form-check-label" for="male">Мужской</label>
                 </div>
                 <div class="form-check">
