@@ -2,7 +2,7 @@
 session_start();
 
 // Подключение к БД
-$db = new PDO("mysql:host=localhost;dbname=u82388", 'u82388', '5768002', [
+$db = new PDO("mysql:host=localhost;dbname=u82389", 'u82389', '3736104', [
         PDO::ATTR_ERRMODE => PDO::ERRMODE_EXCEPTION
     ]);
 
@@ -61,22 +61,18 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB" crossorigin="anonymous">
     <title>Регистрация</title>
     <style>
         body {
-color: #64400f;
-
-            //font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-            background-color: #ffe9b0;
-            display: flex;
+display: flex;
             justify-content: center;
             align-items: center;
             height: 100vh;
             margin: 0;
         }
         .register-container {
-            color: #4e1609;
-    background-color: #fcdea8;
+    background-color: #FFEBEE;
             padding: 2rem;
             border-radius: 4px;
             width: 100%;
@@ -84,7 +80,6 @@ color: #64400f;
         }
         h2 {
             text-align: center;
-            color: #64400f;
             margin-bottom: 1.5rem;
         }
         .form-group {
@@ -104,17 +99,7 @@ color: #64400f;
         }
         button {
             width: 100%;
-            padding: 0.75rem;
-            background-color: #EC9311;
-            color: white;
-            border: none;
-            border-radius: 4px;
-            font-size: 1rem;
-            cursor: pointer;
             margin-top: 1rem;
-        }
-        button:hover {
-            background-color: #9cd8cc;
         }
         .error {
             border: 2px solid red;
@@ -127,7 +112,6 @@ color: #64400f;
             margin-top: 1.5rem;
         }
         .login-link a {
-            color: #8c4566;
             text-decoration: none;
         }
         .login-link a:hover {
@@ -146,7 +130,7 @@ color: #64400f;
         <?php endif; ?>
 
         <?php if ($success): ?>
-            <div style="text-align: center; margin: 1rem 0; color: green;">
+            <div style="text-align: center; margin: 1rem 0; color: #B83BAC;">
                 Регистрация прошла успешно!
             </div>
             <div class="login-link">
@@ -170,7 +154,7 @@ color: #64400f;
                     <input type="password" id="password_confirm" name="password_confirm" required>
                 </div>
 
-                <button type="submit">
+                <button type="submit" class="btn btn-primary">
                     Зарегистрироваться
                 </button>
             </form>
