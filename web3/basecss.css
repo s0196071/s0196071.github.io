@@ -6,3 +6,10 @@
 .highlighted {
     background-color: #FFEBEE;
 }  
+div{
+    background-color: green;
+    text-align: center;
+    margin-top: 15px;
+    max-width: 80%;
+    padding: 10px;
+}
