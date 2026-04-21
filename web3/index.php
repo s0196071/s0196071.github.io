@@ -10,7 +10,7 @@
 </head>
 <body>
     <div class="highlighted container">
-        <form action="form.php" method="POST">
+        <form action="process.php" method="POST">
             <h3> Анкета </h3>
             <div class="mb-3">
                 <label for="fio" class="form-label">ФИО:</label> 
@@ -46,7 +46,7 @@
 
             <div class="mb-3">Пол:
                 <div class="form-check">
-                    <input class="form-check-input" type="radio" name="gender" id="male" value="male" requir>
+                    <input class="form-check-input" type="radio" name="gender" id="male" value="male" required>
                     <label class="form-check-label" for="male">Мужской</label>
                 </div>
                 <div class="form-check">
@@ -98,6 +98,11 @@
             </div>
 
             <button type="submit" class="btn btn-primary">Сохранить</button>
+        <?php if(isset($showSuccess) && $showSuccess): ?>
+                    <div class="success-mes">
+                        Спасибо, данные отправлены.
+                    </div>
+            <?php endif; ?>
 
         </form> 
     </div>
