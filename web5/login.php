@@ -64,13 +64,11 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB" crossorigin="anonymous">
     <title>Вход в систему</title>
     <style>
         body {
-            //font-family: Arial, sans-serif;
-            background-color: #ffe9b0;
             margin: 0;
-color: #64400f;
             padding: 20px;
             display: flex;
             justify-content: center;
@@ -78,8 +76,7 @@ color: #64400f;
             height: 100vh;
         }
         .login-container {
-color: #4e1609;
-    background-color: #fcdea8;
+    background-color: #FFEBEE;
             padding: 30px;
             border-radius: 8px;
             width: 100%;
@@ -108,17 +105,6 @@ color: #4e1609;
         }
         button {
             width: 100%;
-            padding: 12px;
-            background-color: #EC9311;
-            color: white;
-            border: none;
-            border-radius: 4px;
-            font-size: 16px;
-            cursor: pointer;
-            transition: background-color 0.3s;
-        }
-        button:hover {
-            background-color: #9cd8cc;
         }
         .error {
             border: 2px solid red;
@@ -133,7 +119,6 @@ color: #4e1609;
             margin-top: 20px;
         }
         .register-link a {
-            color: #8c4566;
             text-decoration: none;
         }
         .register-link a:hover {
@@ -160,7 +145,7 @@ color: #4e1609;
                 <input type="password" id="password" name="password" required>
             </div>
 
-            <button type="submit">Войти</button>
+            <button type="submit" class="btn btn-primary">Войти</button>
         </form>
 
         <div class="register-link">
