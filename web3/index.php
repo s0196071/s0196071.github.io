@@ -79,9 +79,9 @@
                 <?php endif; ?>
             </div>
 
-            <div class="mb-3">Биография:
+            <div class="mb-3">
+                <label for="bio">Биография:</label>
                 <div class="form-floating">
-                    <label for="bio">Напишите о себе...</label>
                     <textarea class="form-control" id="bio" name="bio" required></textarea>
                     <?php if (isset($errors['bio'])): ?>
                         <div class="error"><?= $errors['bio'] ?></div>
