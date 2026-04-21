@@ -314,7 +314,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
                 <div class="form-floating">
                     <textarea class="form-control" id="bio" name="bio" class="<?= isset($_COOKIE['error_bio']) ? 'error-field' : '' ?>"><?= 
         getFieldValue('bio', $userData, 'bio') 
-    ?>></textarea>
+    ?></textarea>
                     <?php if (isset($_COOKIE['error_bio'])): ?>
                         <div class="error"><?= htmlspecialchars($_COOKIE['error_bio']) ?></div>
                     <?php endif; ?>
