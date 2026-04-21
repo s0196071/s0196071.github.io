@@ -133,10 +133,10 @@ display: flex;
             <div style="text-align: center; margin: 1rem 0; color: #B83BAC;">
                 Регистрация прошла успешно!
             </div>
+            <div style="text-align: center; margin: 1rem 0; color: #B83BAC;">
+                Вы будете перенаправлены на вход в систему
+            </div>
             <meta http-equiv="refresh" content="5; URL=/s019/web5/login.php">
-            /*<div class="login-link">
-                <a href="login.php">Перейти к входу</a>
-            </div>*/
         <?php else: ?>
             <form method="POST">
                 <div class="form-group">
