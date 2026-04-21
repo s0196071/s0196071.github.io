@@ -276,7 +276,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
                     <label class="form-check-label" for="male">Мужской</label>
                 </div>
                 <div class="form-check">
-                    <input class="form-check-input" type="radio" name="gender" id="female" value="female" <?= getFormData('gender') == 'female' ? 'checked' : '' ?>
+                    <input class="form-check-input" type="radio" name="gender" id="female" value="female" <?= ($genderValue == 'female') ? 'checked' : '' ?>>
                     <label class="form-check-label" for="female">Женский</label>  
                 </div>
                 <?php if (isset($_COOKIE['error_gender'])): ?>
@@ -312,7 +312,9 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 
             <div class="mb-3">Биография:
                 <div class="form-floating">
-                    <textarea class="form-control" id="bio" name="bio" class="<?= isset($_COOKIE['error_bio']) ? 'error-field' : '' ?>"><?= htmlspecialchars(getFormData('bio')) ?></textarea>
+                    <textarea class="form-control" id="bio" name="bio" class="<?= isset($_COOKIE['error_bio']) ? 'error-field' : '' ?>"><?= 
+        getFieldValue('bio', $userData, 'bio') 
+    ?>></textarea>
                     <?php if (isset($_COOKIE['error_bio'])): ?>
                         <div class="error"><?= htmlspecialchars($_COOKIE['error_bio']) ?></div>
                     <?php endif; ?>
@@ -322,8 +324,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
             <div class="mb-3">
                 <?php $contractValue = getFieldValue('contract', $userData, 'contract_agreed'); ?>
                 <input type="checkbox" class="form-check-input" name="contract" id="contract"value="1"
-                       <?= getFormData('contract') ? 'checked' : '' ?>
-                       class="<?= isset($_COOKIE['error_contract']) ? 'error-field' : '' ?>">
+                       <?= ($contractValue == '1' || $contractValue == 1) ? 'checked' : '' ?>>
                 <label class="form-check-label" for="contract">С контрактом ознакомлен(-а)</label>
                 <?php if (isset($_COOKIE['error_contract'])): ?>
                     <div class="error"><?= htmlspecialchars($_COOKIE['error_contract']) ?></div>
