@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+
+<html lang="ru">
+<head>
+    <title> Задание 3 </title>
+    <meta charset="utf-8">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB" crossorigin="anonymous">
+    <link rel="stylesheet" href="basecss.css" type="text/css"/>
+
+</head>
+<body>
+    <div class="highlighted container">
+        <form action="process.php" method="POST">
+            <h3> Анкета </h3>
+            <div class="mb-3">
+                <label for="fio" class="form-label">ФИО:</label> 
+                <input class="form-control" id="fio" aria-describedby="format" name="fio" type="text" placeholder="Введите ваше ФИО" required>
+                <?php if (isset($errors['fio'])): ?>
+                    <div class="error"><?= $errors['fio'] ?></div>
+                <?php endif; ?>
+            </div>  
+
+            <div class="mb-3">
+                <label for="phone" class="form-label">Номер телефона:</label>
+                <input class="form-control" id="phone" aria-describedby="format" name="phone" type="tel" placeholder="Введите номер телефона" required> 
+                <?php if (isset($errors['phone'])): ?>
+                    <div class="error"><?= $errors['phone'] ?></div>
+                <?php endif; ?>
+            </div>
+
+            <div class="mb-3">
+                <label for="email" class="form-label">Email:</label>
+                <input class="form-control" id="email" name="email" type="email" placeholder="Введите ваш email" required>
+                <?php if (isset($errors['email'])): ?>
+                    <div class="error"><?= $errors['email'] ?></div>
+                <?php endif; ?>
+            </div>
+
+            <div class="mb-3">
+                <label for="birthdate">Дата рождения:</label>
+                <input name="birthdate" type="date" class="form-control" id="birthdate" required>
+                <?php if (isset($errors['birthdate'])): ?>
+                    <div class="error"><?= $errors['birthdate'] ?></div>
+                <?php endif; ?>
+            </div>
+
+            <div class="mb-3">Пол:
+                <div class="form-check">
+                    <input class="form-check-input" type="radio" name="gender" id="male" value="male" required>
+                    <label class="form-check-label" for="male">Мужской</label>
+                </div>
+                <div class="form-check">
+                    <input class="form-check-input" type="radio" name="gender" id="female" value="female">
+                    <label class="form-check-label" for="female">Женский</label>  
+                </div>
+                <?php if (isset($errors['gender'])): ?>
+                    <div class="error"><?= $errors['gender'] ?></div>
+                <?php endif; ?>
+            </div>
+
+            <div class="mb-3">
+                <label for="languages" class="form-label">Любимый язык программирования:</label>
+                <select id="languages" name="languages[]" multiple="multiple" class="form-select" required>
+                    <option value="Pascal"> Pascal </option>
+                    <option value="C"> C </option>
+                    <option value="C++"> C++ </option>
+                    <option value="JavaScript"> JavaScript </option>
+                    <option value="PHP"> PHP </option>
+                    <option value="Python"> Python </option>
+                    <option value="Java"> Java </option>
+                    <option value="Haskel"> Haskel </option>
+                    <option value="Clojure"> Clojure </option>
+                    <option value="Prolog"> Prolog </option>
+                    <option value="Scala"> Scala </option>
+                    <option value="Go">Go</option>
+                </select>
+                <?php if (isset($errors['languages'])): ?>
+                    <div class="error"><?= $errors['languages'] ?></div>
+                <?php endif; ?>
+            </div>
+
+            <div class="mb-3">Биография:
+                <div class="form-floating">
+                    <textarea class="form-control" id="bio" name="bio" required></textarea>
+                    <label for="bio">Напишите о себе...</label>
+                    <?php if (isset($errors['bio'])): ?>
+                        <div class="error"><?= $errors['bio'] ?></div>
+                    <?php endif; ?>
+                </div>
+            </div>
+
+            <div class="mb-3">
+                <input type="checkbox" class="form-check-input" name="contract" id="contract">
+                <label class="form-check-label" for="contract">С контрактом ознакомлен(-а)</label>
+                <?php if (isset($errors['contract'])): ?>
+                    <div class="error"><?= $errors['contract'] ?></div>
+                <?php endif; ?>
+            </div>
+
+            <button type="submit" class="btn btn-primary">Сохранить</button>
+        <?php if(isset($showSuccess) && $showSuccess): ?>
+                    <div class="success-mes">
+                        Спасибо, данные отправлены.
+                    </div>
+            <?php endif; ?>
+
+        </form> 
+    </div>
+</body>
+</html>
