@@ -5,7 +5,13 @@
 }
 .highlighted {
     background-color: #FFEBEE;
-}  
+} 
+
+header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
 .success-mes{
     color: white;
     font: bold;
