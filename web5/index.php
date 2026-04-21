@@ -273,12 +273,10 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
                 <div class="form-check">
                     <?php $genderValue = getFieldValue('gender', $userData, 'gender'); ?>
                     <input class="form-check-input" type="radio" name="gender" id="male" value="male" <?= getFormData('gender') == 'male' ? 'checked' : '' ?>
-                       class="<?= isset($_COOKIE['error_gender']) ? 'error-field' : '' ?>">
                     <label class="form-check-label" for="male">Мужской</label>
                 </div>
                 <div class="form-check">
                     <input class="form-check-input" type="radio" name="gender" id="female" value="female" <?= getFormData('gender') == 'female' ? 'checked' : '' ?>
-                       class="<?= isset($_COOKIE['error_gender']) ? 'error-field' : '' ?>">
                     <label class="form-check-label" for="female">Женский</label>  
                 </div>
                 <?php if (isset($_COOKIE['error_gender'])): ?>
