@@ -209,7 +209,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 <!DOCTYPE html>
 <html lang="ru">
 <head>
-    <title> Задание 4 </title>
+    <title> Задание 5 </title>
     <meta charset="utf-8">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB" crossorigin="anonymous">
     <link rel="stylesheet" href="basecss.css" type="text/css"/>
@@ -219,7 +219,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     <div class="highlighted container">
             <header>
                 <h3> Анкета </h3>
-                <a href="logout.php" class="logout-btn">
+                <a href="logout.php" class="btn btn-primary">
                     Выйти
                 </a>
             </header>
