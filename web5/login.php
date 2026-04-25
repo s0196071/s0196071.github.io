@@ -11,7 +11,7 @@ function generateLogin() {
 }
 
 // Функция для генерации случайного пароля
-function generatePassword($length = 10) {
+function generatePassword($length = 12) {
     $chars = 'abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789!@#$%';
     $password = '';
     for ($i = 0; $i < $length; $i++) {
@@ -49,7 +49,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     $password = trim($_POST['password']);
 
     // Отладочная информация
-    $debug_info .= "Попытка входа: login='$login', password='$password'\n";
+    $debug_info .= "Попытка входа: login='$login'\n";
 
     try {
         // Ищем пользователя в БД
@@ -65,19 +65,16 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
             // Проверяем пароль
             if (password_verify($password, $user['password_hash'])) {
                 $_SESSION['user_id'] = $user['id'];
-                $debug_info .= "Пароль верный, авторизация успешна\n";
+                $debug_info .= "Авторизация прошла успешно\n";
 
                 // Перенаправляем после успешного входа
                 header('Location: index.php');
                 exit();
             } else {
-                $debug_info .= "Ошибка: пароль не совпадает\n";
-                $error = 'Неверный пароль';
+                $debug_info .= "Ошибка: неверные учетные данные\n";
+                $error = 'Неверный логин или пароль';
             }
-        } else {
-            $debug_info .= "Ошибка: пользователь не найден\n";
-            $error = 'Пользователь с таким логином не существует';
-        }
+        } 
     } catch (PDOException $e) {
         $error = 'Ошибка базы данных';
         $debug_info .= "Ошибка БД: " . $e->getMessage() . "\n";
