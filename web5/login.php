@@ -1,6 +1,35 @@
 <?php
 session_start();
 
+// Функция для генерации случайного логина
+function generateLogin() {
+    $adjectives = ['Fast', 'Smart', 'Cool', 'Happy', 'Bright', 'Clever', 'Wise', 'Brave', 'Cool', 'Lucky'];
+    $nouns = ['Apple', 'Snow', 'Perfume', 'Goose', 'Cat', 'Sugar', 'Muse', 'Hero', 'Star', 'Ghost'];
+    $random = rand(100, 999);
+    
+    return $adjectives[array_rand($adjectives)] . $nouns[array_rand($nouns)] . $random;
+}
+
+// Функция для генерации случайного пароля
+function generatePassword($length = 10) {
+    $chars = 'abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789!@#$%';
+    $password = '';
+    for ($i = 0; $i < $length; $i++) {
+        $password .= $chars[random_int(0, strlen($chars) - 1)];
+    }
+    return $password;
+}
+
+if (isset($_GET['ajax'])) {
+    header('Content-Type: application/json');
+    if ($_GET['ajax'] == 'login') {
+        echo json_encode(['value' => generateLogin()]);
+    } elseif ($_GET['ajax'] == 'password') {
+        echo json_encode(['value' => generatePassword()]);
+    }
+    exit();
+}
+
 // Если уже авторизован - перенаправляем на главную
 if (isset($_SESSION['user_id'])) {
     header('Location: index.php');
