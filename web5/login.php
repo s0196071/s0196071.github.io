@@ -186,10 +186,17 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 
     <script>
         function generateField(type) {
-        fetch('?ajax=' + type)
-            .then(response => response.json())
+            fetch('?ajax=' + type)
+            .then(response => {
+                if (!response.ok) throw new Error('Сетевая ошибка');
+                return response.json();
+            })
             .then(data => {
-                document.getElementById(type).value = data.value;
+                if (data.value) document.getElementById(type).value = data.value;
+            })
+            .catch(error => {
+                console.error(error);
+                alert('Не удалось сгенерировать значение');
             });
         }
     </script>
