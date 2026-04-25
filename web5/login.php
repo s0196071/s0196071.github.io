@@ -172,6 +172,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
             <div class="form-group">
                 <label for="password">Пароль:</label>
                 <input type="password" id="password" name="password" required>
+                <button type="button" id="generatePasswordBtn" class="btn btn-secondary generate-btn">Сгенерировать пароль</button>
             </div>
 
             <button type="submit" class="btn btn-primary">Войти</button>
@@ -181,5 +182,28 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
             Нет аккаунта? <a href="register.php">Зарегистрируйтесь</a>
         </div>
     </div>
+
+    <script>
+        // Обработчик кнопки генерации пароля
+        document.getElementById('generatePasswordBtn').addEventListener('click', function() {
+            fetch('?ajax=password')
+                .then(response => {
+                    if (!response.ok) {
+                        throw new Error('Ошибка сети');
+                    }
+                    return response.json();
+                })
+                .then(data => {
+                    if (data.value) {
+                        const passwordField = document.getElementById('password');
+                        passwordField.value = data.value;
+                    }
+                })
+                .catch(error => {
+                    console.error('Ошибка при генерации пароля:', error);
+                    alert('Не удалось сгенерировать пароль. Попробуйте позже.');
+                });
+        });
+    </script>
 </body>
 </html>
