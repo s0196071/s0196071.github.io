@@ -130,10 +130,10 @@ display: flex;
         <?php endif; ?>
 
         <?php if ($success): ?>
-            <div style="text-align: center; margin: 1rem 0; color: #B83BAC;">
+            <div style="text-align: center; margin: 1rem 0; color: #FF78C9;">
                 Регистрация прошла успешно!
             </div>
-            <div style="text-align: center; margin: 1rem 0; color: #B83BAC;">
+            <div style="text-align: center; margin: 1rem 0; color: #FF78C9;">
                 Вы будете перенаправлены на вход в систему
             </div>
             <meta http-equiv="refresh" content="5; URL=/s019/web5/login.php">
