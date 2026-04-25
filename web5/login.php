@@ -153,6 +153,9 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
         .register-link a:hover {
             text-decoration: underline;
         }
+        .generate-btn {
+            margin-top: 10px;
+        }
     </style>
 </head>
 <body>
