@@ -3,8 +3,8 @@ session_start();
 
 // Функция для генерации случайного логина
 function generateLogin() {
-    $adjectives = ['Fast', 'Smart', 'Cool', 'Happy', 'Bright', 'Clever', 'Wise', 'Brave', 'Cool', 'Lucky'];
-    $nouns = ['Apple', 'Snow', 'Perfume', 'Goose', 'Cat', 'Sugar', 'Muse', 'Hero', 'Star', 'Ghost'];
+    $adjectives = ['Быстрый', 'Смелый', 'Умный', 'Тихий', 'Яркий', 'Скромный', 'Весёлый', 'Храбрый', 'Нежный', 'Лунный'];
+    $nouns = ['Лисёнок', 'Ёжик', 'Котик', 'Пёсик', 'Волчонок', 'Зайчик', 'Медвежонок', 'Попугайчик', 'Хомячок', 'Мышонок'];
     $random = rand(100, 999);
     
     return $adjectives[array_rand($adjectives)] . $nouns[array_rand($nouns)] . $random;
@@ -167,12 +167,13 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
             <div class="form-group">
                 <label for="login">Логин:</label>
                 <input type="text" id="login" name="login" required>
+                <button type="button" class="btn btn-secondary generate-btn" onclick="generateField('login')">Сгенерировать логин</button>
             </div>
 
             <div class="form-group">
                 <label for="password">Пароль:</label>
                 <input type="password" id="password" name="password" required>
-                <button type="button" id="generatePasswordBtn" class="btn btn-secondary generate-btn">Сгенерировать пароль</button>
+                <button type="button" class="btn btn-secondary generate-btn" onclick="generateField('password')">Сгенерировать пароль</button>
             </div>
 
             <button type="submit" class="btn btn-primary">Войти</button>
@@ -184,26 +185,13 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     </div>
 
     <script>
-        // Обработчик кнопки генерации пароля
-        document.getElementById('generatePasswordBtn').addEventListener('click', function() {
-            fetch('?ajax=password')
-                .then(response => {
-                    if (!response.ok) {
-                        throw new Error('Ошибка сети');
-                    }
-                    return response.json();
-                })
-                .then(data => {
-                    if (data.value) {
-                        const passwordField = document.getElementById('password');
-                        passwordField.value = data.value;
-                    }
-                })
-                .catch(error => {
-                    console.error('Ошибка при генерации пароля:', error);
-                    alert('Не удалось сгенерировать пароль. Попробуйте позже.');
-                });
-        });
+        function generateField(type) {
+        fetch('?ajax=' + type)
+            .then(response => response.json())
+            .then(data => {
+                document.getElementById(type).value = data.value;
+            });
+        }
     </script>
 </body>
 </html>
