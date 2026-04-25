@@ -5,7 +5,7 @@ session_start();
 function generateLogin() {
     $adjectives = ['Быстрый', 'Смелый', 'Умный', 'Тихий', 'Яркий', 'Скромный', 'Весёлый', 'Храбрый', 'Нежный', 'Лунный'];
     $nouns = ['Лисёнок', 'Ёжик', 'Котик', 'Пёсик', 'Волчонок', 'Зайчик', 'Медвежонок', 'Попугайчик', 'Хомячок', 'Мышонок'];
-    $random = rand(100, 999);
+    $random = rand(1, 100);
     
     return $adjectives[array_rand($adjectives)] . $nouns[array_rand($nouns)] . $random;
 }
