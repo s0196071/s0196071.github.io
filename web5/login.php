@@ -73,13 +73,13 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
             height: 100vh;
         }
         .login-container {
-    background-color: #FFEBEE;
+            background-color: #FFEBEE;
             padding: 30px;
             border-radius: 8px;
             width: 100%;
             max-width: 400px;
         }
-        h1 {
+        h2 {
             text-align: center;
             margin-bottom: 25px;
         }
