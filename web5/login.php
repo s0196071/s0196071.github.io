@@ -125,7 +125,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 </head>
 <body>
     <div class="login-container">
-        <h1>Вход в систему</h1>
+        <h2>Вход в систему</h2>
 
         <?php if ($error): ?>
             <div class="error"><?= htmlspecialchars($error) ?></div>
