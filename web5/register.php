@@ -202,17 +202,19 @@ display: flex;
     <script>
         function generateField(type) {
             fetch('?ajax=' + type)
-            .then(response => {
-                if (!response.ok) throw new Error('Сетевая ошибка');
-                return response.json();
-            })
-            .then(data => {
-                if (data.value) document.getElementById(type).value = data.value;
-            })
-            .catch(error => {
-                console.error(error);
-                alert('Не удалось сгенерировать значение');
-            });
+                .then(response => response.json())
+                .then(data => {
+                    if (data.value) {
+                        document.getElementById(type).value = data.value;
+                        if (type === 'password') {
+                            alert(`Сгенерированный пароль: ${data.value}`);
+                        }
+                    }
+                })
+                .catch(error => {
+                    console.error(error);
+                    alert('Не удалось сгенерировать значение');
+                });
         }
     </script>
 </body>
