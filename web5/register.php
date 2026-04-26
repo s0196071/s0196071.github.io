@@ -202,11 +202,15 @@ display: flex;
     <script>
         function generateField(type) {
             fetch('?ajax=' + type)
-                .then(response => response.json())
+                .then(response => {
+                    if (!response.ok) throw new Error('Сетевая ошибка');
+                    return response.json();
+                })
                 .then(data => {
                     if (data.value) {
                         document.getElementById(type).value = data.value;
                         if (type === 'password') {
+                            document.getElementById('password_confirm').value = data.value;
                             alert(`Сгенерированный пароль: ${data.value}`);
                         }
                     }
@@ -215,7 +219,7 @@ display: flex;
                     console.error(error);
                     alert('Не удалось сгенерировать значение');
                 });
-        }
+            }
     </script>
 </body>
 </html>
