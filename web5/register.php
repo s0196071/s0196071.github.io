@@ -1,6 +1,35 @@
 <?php
 session_start();
 
+// Функция для генерации случайного логина
+function generateLogin() {
+    $adjectives = ['Быстрый', 'Смелый', 'Умный', 'Тихий', 'Яркий', 'Скромный', 'Весёлый', 'Храбрый', 'Нежный', 'Лунный'];
+    $nouns = ['Лисёнок', 'Ёжик', 'Котик', 'Пёсик', 'Волчонок', 'Зайчик', 'Медвежонок', 'Попугайчик', 'Хомячок', 'Мышонок'];
+    $random = rand(1, 100);
+    
+    return $adjectives[array_rand($adjectives)] . $nouns[array_rand($nouns)] . $random;
+}
+
+// Функция для генерации случайного пароля
+function generatePassword($length = 12) {
+    $chars = 'abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789!@#$%';
+    $password = '';
+    for ($i = 0; $i < $length; $i++) {
+        $password .= $chars[random_int(0, strlen($chars) - 1)];
+    }
+    return $password;
+}
+
+if (isset($_GET['ajax'])) {
+    header('Content-Type: application/json');
+    if ($_GET['ajax'] == 'login') {
+        echo json_encode(['value' => generateLogin()]);
+    } elseif ($_GET['ajax'] == 'password') {
+        echo json_encode(['value' => generatePassword()]);
+    }
+    exit();
+}
+
 // Подключение к БД
 $db = new PDO("mysql:host=localhost;dbname=u82389", 'u82389', '3736104', [
         PDO::ATTR_ERRMODE => PDO::ERRMODE_EXCEPTION
@@ -117,6 +146,9 @@ display: flex;
         .login-link a:hover {
             text-decoration: underline;
         }
+        .generate-btn {
+            margin-top: 10px;
+        }
     </style>
 </head>
 <body>
@@ -143,11 +175,13 @@ display: flex;
                     <label for="login">Логин:</label>
                     <input type="text" id="login" name="login" required
                            value="<?= isset($login) ? htmlspecialchars($login) : '' ?>">
+                    <button type="button" class="btn btn-secondary generate-btn" onclick="generateField('login')">Сгенерировать логин</button>    
                 </div>
 
                 <div class="form-group">
                     <label for="password">Пароль:</label>
                     <input type="password" id="password" name="password" required>
+                    <button type="button" class="btn btn-secondary generate-btn" onclick="generateField('password')">Сгенерировать пароль</button>
                 </div>
 
                 <div class="form-group">
@@ -165,5 +199,21 @@ display: flex;
             </div>
         <?php endif; ?>
     </div>
+    <script>
+        function generateField(type) {
+            fetch('?ajax=' + type)
+            .then(response => {
+                if (!response.ok) throw new Error('Сетевая ошибка');
+                return response.json();
+            })
+            .then(data => {
+                if (data.value) document.getElementById(type).value = data.value;
+            })
+            .catch(error => {
+                console.error(error);
+                alert('Не удалось сгенерировать значение');
+            });
+        }
+    </script>
 </body>
 </html>
