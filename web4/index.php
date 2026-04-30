@@ -151,7 +151,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 
         // Очищаем cookies с данными формы и ошибками
         foreach ($_COOKIE as $name => $value) {
-            if (strpos($name, 'form_') === 0 || strpos($name, 'error_') === 0) {
+            if (strpos($name, 'error_') === 0) {
                 setcookie($name, '', time() - 3600, '/');
             }
         }
