@@ -25,7 +25,7 @@ if (!isset($_SESSION['admin_logged_in'])) {
 }
 
 // 2. Подключение к БД
-$db = new PDO("mysql:host=localhost;dbname=u68775", 'u68775', '7631071', [
+$db = new PDO("mysql:host=localhost;dbname=u82389", 'u82389', '3736104', [
     PDO::ATTR_ERRMODE => PDO::ERRMODE_EXCEPTION
 ]);
 
@@ -62,32 +62,18 @@ $stats = $db->query("
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Админ-панель</title>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB" crossorigin="anonymous">
     <style>
-        :root {
-            --primary: #4361ee;
-            --primary-dark: #3a56d4;
-            --danger: #f72585;
-            --success: #4cc9f0;
-            --light: #f8f9fa;
-            --dark: #212529;
-            --border-radius: 8px;
-            --shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-        }
-
         body {
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-            background-color: #f0f2f5;
-            color: var(--dark);
-            line-height: 1.6;
             padding: 20px;
         }
-
         .container {
             max-width: 800px;
             margin: 0 auto;
+            background-color: #FFEBEE;
+            border-radius: 8px;
+            padding: 20px;
         }
-
         header {
             display: flex;
             justify-content: space-between;
@@ -95,152 +81,42 @@ $stats = $db->query("
             margin-bottom: 30px;
             padding-bottom: 15px;
             border-bottom: 1px solid rgba(0, 0, 0, 0.1);
-        }
-
-        h1 {
-            color: var(--primary);
-            font-size: 28px;
-        }
-
+        } 
         .logout-btn {
             display: inline-flex;
             align-items: center;
             gap: 8px;
-            background-color: var(--danger);
             color: white;
             padding: 8px 16px;
-            border-radius: var(--border-radius);
+            border-radius: 8px;
             text-decoration: none;
             transition: all 0.3s;
         }
-
-        .logout-btn:hover {
-            background-color: #d1146d;
-            transform: translateY(-2px);
-        }
-
         .alert {
             padding: 12px 16px;
-            border-radius: var(--border-radius);
             margin-bottom: 20px;
             display: flex;
             align-items: center;
             gap: 10px;
         }
-
         .alert.success {
             background-color: rgba(76, 201, 240, 0.2);
             border-left: 4px solid var(--success);
             color: #0a6c83;
         }
-
         .alert.error {
             background-color: rgba(247, 37, 133, 0.2);
             border-left: 4px solid var(--danger);
             color: #a11a56;
         }
-
-        form {
-            background: white;
-            padding: 30px;
-            border-radius: var(--border-radius);
-            box-shadow: var(--shadow);
-        }
-
-        .form-group {
-            margin-bottom: 20px;
-        }
-
-        .form-group label {
-            display: block;
-            margin-bottom: 8px;
-            font-weight: 500;
-        }
-
-        .form-group input[type="text"],
-        .form-group input[type="tel"],
-        .form-group input[type="email"],
-        .form-group input[type="date"],
-        .form-group select,
-        .form-group textarea {
-            width: 100%;
-            padding: 12px 15px;
-            border: 1px solid #ddd;
-            border-radius: var(--border-radius);
-            font-size: 16px;
-            transition: all 0.3s;
-        }
-
-        .form-group input:focus,
-        .form-group select:focus,
-        .form-group textarea:focus {
-            border-color: var(--primary);
-            outline: none;
-            box-shadow: 0 0 0 3px rgba(67, 97, 238, 0.2);
-        }
-
-        .error-field {
-            border-color: var(--danger) !important;
-        }
-
         .error {
-            color: var(--danger);
+            color: red;
             font-size: 14px;
             margin-top: 5px;
             display: flex;
             align-items: center;
             gap: 5px;
         }
-
-        .radio-group {
-            display: flex;
-            align-items: center;
-            margin-bottom: 8px;
-        }
-
-        .radio-group input[type="radio"] {
-            margin-right: 10px;
-        }
-
-        .checkbox-group {
-            display: flex;
-            align-items: center;
-        }
-
-        .checkbox-group input[type="checkbox"] {
-            margin-right: 10px;
-        }
-
-        select[multiple] {
-            height: auto;
-            min-height: 120px;
-            padding: 8px !important;
-        }
-
-        textarea {
-            min-height: 120px;
-            resize: vertical;
-        }
-
-        .submit-btn {
-            background-color: var(--primary);
-            color: white;
-            border: none;
-            padding: 12px 24px;
-            font-size: 16px;
-            border-radius: var(--border-radius);
-            cursor: pointer;
-            transition: all 0.3s;
-            width: 100%;
-            margin-top: 10px;
-        }
-
-        .submit-btn:hover {
-            background-color: var(--primary-dark);
-            transform: translateY(-2px);
-        }
-
-        /* Стили для админ-таблицы */
         .admin-table {
             width: 100%;
             border-collapse: collapse;
@@ -250,7 +126,6 @@ $stats = $db->query("
             border-radius: var(--border-radius);
             overflow: hidden;
         }
-
         .admin-table th,
         .admin-table td {
             padding: 12px 15px;
@@ -259,7 +134,7 @@ $stats = $db->query("
         }
 
         .admin-table th {
-            background-color: var(--primary);
+            background-color: blue;
             color: white;
         }
 
@@ -276,80 +151,51 @@ $stats = $db->query("
             text-decoration: none;
             font-size: 14px;
         }
-
-        .edit-btn {
-            background-color: var(--success);
-            color: white;
-        }
-
-        .delete-btn {
-            background-color: var(--danger);
-            color: white;
-        }
-
         .stats-grid {
             display: grid;
             grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
             gap: 15px;
             margin-bottom: 30px;
         }
-
         .stat-card {
             background: white;
             padding: 15px;
-            border-radius: var(--border-radius);
-            box-shadow: var(--shadow);
+            border-radius: 8px;
+            box-shadow: shadow;
         }
-
         .stat-value {
             font-size: 24px;
             font-weight: bold;
-            color: var(--primary);
+            color: blue;
             margin: 5px 0;
-        }
-
-        @media (max-width: 768px) {
-            .container {
-                padding: 15px;
-            }
-
-            form {
-                padding: 20px;
-            }
-
-            .stats-grid {
-                grid-template-columns: 1fr;
-            }
         }
     </style>
 </head>
 <body>
     <div class="container">
         <header>
-            <h1><i class="fas fa-user-shield"></i> Админ-панель</h1>
-            <a href="logout.php" class="logout-btn">
-                <i class="fas fa-sign-out-alt"></i> Выйти
+            <h2>Админ-панель</h2>
+            <a href="admin_logout.php" class="logout-btn">
+                <button type="submit" class="btn btn-primary">Выйти</button>
             </a>
         </header>
 
         <?php if (isset($_GET['deleted'])): ?>
-            <div class="alert success">
-                <i class="fas fa-check-circle"></i> Пользователь успешно удален!
-            </div>
+            <div class="alert success">Пользователь успешно удален!</div>
         <?php endif; ?>
 
-        <h2><i class="fas fa-chart-pie"></i> Статистика по языкам</h2>
+        <h2>Статистика по языкам</h2>
         <div class="stats-grid">
             <?php foreach ($stats as $stat): ?>
                 <div class="stat-card">
                     <h3><?= htmlspecialchars($stat['name']) ?></h3>
                     <div class="stat-value"><?= $stat['user_count'] ?></div>
-                    <p><i class="fas fa-users"></i> пользователей</p>
+                    <p>пользователей</p>
                 </div>
             <?php endforeach; ?>
         </div>
 
-        <h2><i class="fas fa-users"></i> Список пользователей</h2>
+        <h2>Список пользователей</h2>
         <table class="admin-table">
             <thead>
                 <tr>
@@ -372,12 +218,8 @@ $stats = $db->query("
                         <td><?= $user['birthdate'] ?></td>
                         <td><?= $user['gender'] == 'male' ? 'Мужской' : 'Женский' ?></td>
                         <td>
-                            <a href="edit_user.php?id=<?= $user['id'] ?>" class="action-btn edit-btn">
-                                <i class="fas fa-edit"></i> Ред.
-                            </a>
-                            <a href="admin.php?delete=<?= $user['id'] ?>" class="action-btn delete-btn" onclick="return confirm('Удалить этого пользователя?')">
-                                <i class="fas fa-trash-alt"></i> Удал.
-                            </a>
+                            <a href="edit_user.php?id=<?= $user['id'] ?>" class="action-btn edit-btn"><button type="submit" class="btn btn-success">Редактировать</button></a>
+                            <a href="admin.php?delete=<?= $user['id'] ?>" class="action-btn delete-btn" onclick="return confirm('Удалить этого пользователя?')"><button type="submit" class="btn btn-danger">Удалить</button></a>
                         </td>
                     </tr>
                 <?php endforeach; ?>
