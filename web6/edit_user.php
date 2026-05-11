@@ -101,7 +101,6 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
         label {
             display: block;
             margin-bottom: 5px;
-            font-weight: bold;
         }
         input[type="text"],
         input[type="tel"],
@@ -127,6 +126,9 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
         a {
             text-decoration: none;
         }
+        .esc {
+            margin-right: 15px;
+        }
         .main {
             display: flex;
         }
@@ -135,8 +137,8 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 <body>
     <div class="container highlighted">
         <div class="main">
-            <h1>Редактирование пользователя #<?= $userId ?></h1>
-            <button class="esc btn btn-primary"><a href="admin.php">Назад к списку</a></button>
+            <h2>Редактирование пользователя #<?= $userId ?></h2>
+            <div class="esc"><a href="admin.php">Назад к списку</a></div>
         </div>
         <form method="POST">
             <div class="form-group">
