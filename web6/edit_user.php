@@ -134,6 +134,16 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
             padding-bottom: 15px;
             border-bottom: 1px solid rgba(0, 0, 0, 0.1);
         } 
+        .admin-btn {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            color: white;
+            padding: 8px 16px;
+            border-radius: 8px;
+            text-decoration: none;
+            transition: all 0.3s;
+        }
     </style>
 </head>
 <body>
