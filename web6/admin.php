@@ -100,14 +100,14 @@ $stats = $db->query("
             gap: 10px;
         }
         .alert.success {
-            background-color: rgba(76, 201, 240, 0.2);
+            background-color: #C4FF50;
             border-left: 4px solid var(--success);
-            color: #0a6c83;
+            color: #6C8C2C;
         }
         .alert.error {
-            background-color: rgba(247, 37, 133, 0.2);
+            background-color: #FF3108;
             border-left: 4px solid var(--danger);
-            color: #a11a56;
+            color: #A11F05;
         }
         .error {
             color: red;
@@ -122,8 +122,7 @@ $stats = $db->query("
             border-collapse: collapse;
             margin-top: 20px;
             background: white;
-            box-shadow: var(--shadow);
-            border-radius: var(--border-radius);
+            border-radius: 6px;
             overflow: hidden;
         }
 
@@ -135,7 +134,7 @@ $stats = $db->query("
         }
 
         .admin-table th {
-            background-color: var(--primary);
+            background-color: #C4FF50;
             color: white;
         }
 
@@ -147,10 +146,7 @@ $stats = $db->query("
             display: inline-flex;
             align-items: center;
             gap: 5px;
-            padding: 6px 12px;
             border-radius: 4px;
-            text-decoration: none;
-            font-size: 14px;
         }
         .stats-grid {
             display: grid;
@@ -162,7 +158,6 @@ $stats = $db->query("
             background: white;
             padding: 15px;
             border-radius: 8px;
-            box-shadow: shadow;
         }
         .stat-value {
             font-size: 24px;
@@ -182,7 +177,7 @@ $stats = $db->query("
         </header>
 
         <?php if (isset($_GET['deleted'])): ?>
-            <div class="alert success">Пользователь успешно удален!</div>
+        <div class="alert success">Пользователь успешно удален!</div>
         <?php endif; ?>
 
         <h2>Статистика по языкам</h2>
@@ -219,8 +214,8 @@ $stats = $db->query("
                         <td><?= $user['birthdate'] ?></td>
                         <td><?= $user['gender'] == 'male' ? 'Мужской' : 'Женский' ?></td>
                         <td>
-                            <a href="edit_user.php?id=<?= $user['id'] ?>" class="action-btn edit-btn"><img src="2.png" alt="edit"></a>
-                            <a href="admin.php?delete=<?= $user['id'] ?>" class="action-btn delete-btn" onclick="return confirm('Удалить этого пользователя?')"><img src="1.png" alt="delete"></a>
+                            <a href="edit_user.php?id=<?= $user['id'] ?>" class="action-btn edit-btn"><img src="images/2.png" alt="edit"></a>
+                            <a href="admin.php?delete=<?= $user['id'] ?>" class="action-btn delete-btn" onclick="return confirm('Удалить этого пользователя?')"><img src="images/1.png" alt="delete"></a>
                         </td>
                     </tr>
                 <?php endforeach; ?>
