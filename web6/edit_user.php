@@ -80,7 +80,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     <title>Редактирование пользователя</title>
     <style>
         .container{
-            width: 80%;
+            width: 75%;
             padding: 20px;
             margin: 0 auto;
             margin-top: 50px;
@@ -121,7 +121,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
             min-height: 150px;
         }
         .btn {
-            margin-right: 10px;
+            margin: 0 auto;
         }
         a {
             text-decoration: none;
