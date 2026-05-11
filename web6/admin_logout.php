@@ -32,6 +32,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && $attempts < 5) {
     if ($admin) {
         // Проверка пароля с подробным логированием
         if (password_verify($password, $admin['password_hash'])) {
+            session_regenerate_id(true);
             $_SESSION['admin_logged_in'] = true;
             $_SESSION['admin_username'] = $username;
             $_SESSION['login_attempts'] = 0;
