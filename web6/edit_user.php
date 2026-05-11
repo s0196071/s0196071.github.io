@@ -126,16 +126,24 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
         .admin-btn{
             margin-right: 10px;
         }
+         header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 30px;
+            padding-bottom: 15px;
+            border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+        } 
     </style>
 </head>
 <body>
     <div class="container highlighted">
-        <div class="main">
+        <header>
             <h2>Редактирование пользователя #<?= $userId ?></h2>
              <a href="admin.php" class="admin-btn">
                 <button type="submit" class="btn btn-primary">Назад к списку</button>
             </a>
-        </div>
+        </header>
         <form method="POST">
             <div class="form-group">
                 <label for="fio">ФИО:</label>
