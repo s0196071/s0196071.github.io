@@ -155,7 +155,7 @@ $stats = $db->query("
             margin-bottom: 30px;
         }
         .stat-card {
-            background: white;
+            background: #C4FF50;
             padding: 15px;
             border-radius: 8px;
         }
