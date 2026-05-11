@@ -78,25 +78,33 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Редактирование пользователя</title>
     <style>
-        body {
-            font-family: Arial, sans-serif;
-            margin: 0;
+        .container{
+            width: 70%;
             padding: 20px;
-            background-color: #f5f5f5;
+            
         }
-        .container {
-            max-width: 800px;
-            margin: 0 auto;
-            background: white;
-            padding: 20px;
-            border-radius: 8px;
-            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+        .highlighted {
+            background-color: #FFEBEE;
+        } 
+        
+        header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+                }
+        .success-mes{
+            color: white;
+            font: bold;
+            background-color: #FF78C9;
+            text-align: center;
+            margin-top: 15px;
+            padding: 10px;
+            border-radius: 5px;
         }
-        h1 {
-            color: #333;
-        }
-        .form-group {
-            margin-bottom: 15px;
+        .error{
+            color: red;
+            font-size: 0.9em;
+            margin-top: 5px;
         }
         label {
             display: block;
