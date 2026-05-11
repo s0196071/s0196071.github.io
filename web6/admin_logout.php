@@ -11,7 +11,7 @@ if (isset($_GET['emergency_reset'])) {
     $new_hash = password_hash('admin123', PASSWORD_BCRYPT);
     $stmt = $db->prepare("UPDATE admin_users SET password_hash = ? WHERE username = 'admin'");
     $stmt->execute([$new_hash]);
-    die("Пароль сброшен. Новый пароль: admin123");
+    die("Пароль сброшен. Новый пароль: admin111");
 }
 
 $error = '';
