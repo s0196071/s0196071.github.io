@@ -20,7 +20,7 @@ if (!$admin || !password_verify($password, $admin['password_hash'])) {
 
 // 1. Проверка авторизации
 if (!isset($_SESSION['admin_logged_in'])) {
-    header('Location: admin_login.php');
+    header('Location: admin_logout.php');
     exit();
 }
 
@@ -126,6 +126,7 @@ $stats = $db->query("
             border-radius: var(--border-radius);
             overflow: hidden;
         }
+
         .admin-table th,
         .admin-table td {
             padding: 12px 15px;
@@ -134,7 +135,7 @@ $stats = $db->query("
         }
 
         .admin-table th {
-            background-color: blue;
+            background-color: var(--primary);
             color: white;
         }
 
@@ -218,8 +219,8 @@ $stats = $db->query("
                         <td><?= $user['birthdate'] ?></td>
                         <td><?= $user['gender'] == 'male' ? 'Мужской' : 'Женский' ?></td>
                         <td>
-                            <a href="edit_user.php?id=<?= $user['id'] ?>" class="action-btn edit-btn"><button type="submit" class="btn btn-success">Редактировать</button></a>
-                            <a href="admin.php?delete=<?= $user['id'] ?>" class="action-btn delete-btn" onclick="return confirm('Удалить этого пользователя?')"><button type="submit" class="btn btn-danger">Удалить</button></a>
+                            <a href="edit_user.php?id=<?= $user['id'] ?>" class="action-btn edit-btn"><img src="2.png" alt="edit"></a>
+                            <a href="admin.php?delete=<?= $user['id'] ?>" class="action-btn delete-btn" onclick="return confirm('Удалить этого пользователя?')"><img src="1.png" alt="delete"></a>
                         </td>
                     </tr>
                 <?php endforeach; ?>
