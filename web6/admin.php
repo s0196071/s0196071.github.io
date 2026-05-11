@@ -134,8 +134,8 @@ $stats = $db->query("
         }
 
         .admin-table th {
-            background-color: #C4FF50;
-            color: white;
+            background-color: white;
+            color: black;
         }
 
         .admin-table tr:hover {
@@ -155,7 +155,7 @@ $stats = $db->query("
             margin-bottom: 30px;
         }
         .stat-card {
-            background: #C4FF50;
+            background: white;
             padding: 15px;
             border-radius: 8px;
         }
