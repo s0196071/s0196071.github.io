@@ -122,15 +122,22 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
             min-height: 150px;
         }
         .btn {
-            margin: 10px;
+            margin-right: 10px;
+        }
+        a {
+            text-decoration: none;
+        }
+        .main {
+            display: flex;
         }
     </style>
 </head>
 <body>
     <div class="container highlighted">
-        <h1>Редактирование пользователя #<?= $userId ?></h1>
-        <a href="admin.php">Назад к списку</a>
-
+        <div class="main">
+            <h1>Редактирование пользователя #<?= $userId ?></h1>
+            <button class="esc btn btn-primary"><a href="admin.php">Назад к списку</a></button>
+        </div>
         <form method="POST">
             <div class="form-group">
                 <label for="fio">ФИО:</label>
