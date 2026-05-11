@@ -120,17 +120,11 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
             height: auto;
             min-height: 150px;
         }
-        .btn {
-            margin: 0 auto;
-        }
         a {
             text-decoration: none;
         }
-        .esc {
-            margin-right: 15px;
-        }
-        .main {
-            display: flex;
+        .admin-btn{
+            margin-right: 10px;
         }
     </style>
 </head>
@@ -138,7 +132,9 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     <div class="container highlighted">
         <div class="main">
             <h2>Редактирование пользователя #<?= $userId ?></h2>
-            <div class="esc"><a href="admin.php">Назад к списку</a></div>
+             <a href="admin.php" class="admin-btn">
+                <button type="submit" class="btn btn-primary">Назад к списку</button>
+            </a>
         </div>
         <form method="POST">
             <div class="form-group">
