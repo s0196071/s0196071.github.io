@@ -68,7 +68,7 @@ $stats = $db->query("
             padding: 20px;
         }
         .container {
-            max-width: 800px;
+            max-width: 80%;
             margin: 0 auto;
             background-color: #FFEBEE;
             border-radius: 8px;
