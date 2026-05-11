@@ -166,7 +166,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && $attempts < 5) {
         <?php if (isset($_GET['debug'])): ?>
             <div style="margin-top: 2rem; text-align: center; font-size: 0.8rem;">
                 <a href="admin_login.php?emergency_reset=1" style="color: var(--error);">
-                    Экстренный сброс пароля (admin123)
+                    Экстренный сброс пароля (admin111)
                 </a>
             </div>
         <?php endif; ?>
