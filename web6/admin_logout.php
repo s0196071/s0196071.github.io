@@ -11,7 +11,7 @@ if (isset($_GET['emergency_reset'])) {
     $new_hash = password_hash('admin123', PASSWORD_BCRYPT);
     $stmt = $db->prepare("UPDATE admin_users SET password_hash = ? WHERE username = 'admin'");
     $stmt->execute([$new_hash]);
-    die("Пароль сброшен. Новый пароль: admin111");
+    die("Пароль сброшен. Новый пароль: admin123");
 }
 
 $error = '';
@@ -152,7 +152,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && $attempts < 5) {
                     <input type="password" id="password" name="password" required>
                 </div>
 
-                <button type="submit">
+                <button type="submit" class="btn btn-primary">
                     <i class="fas fa-sign-in-alt"></i> Войти
                 </button>
             </form>
@@ -166,7 +166,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && $attempts < 5) {
         <?php if (isset($_GET['debug'])): ?>
             <div style="margin-top: 2rem; text-align: center; font-size: 0.8rem;">
                 <a href="admin_login.php?emergency_reset=1" style="color: var(--error);">
-                    Экстренный сброс пароля (admin111)
+                    Экстренный сброс пароля (admin123)
                 </a>
             </div>
         <?php endif; ?>
