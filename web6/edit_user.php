@@ -76,35 +76,27 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB" crossorigin="anonymous">
     <title>Редактирование пользователя</title>
     <style>
         .container{
-            width: 70%;
+            width: 80%;
             padding: 20px;
-            
+            margin: 0 auto;
+            margin-top: 50px;
+            margin-bottom: 50px;
+            border-radius: 8px;
         }
         .highlighted {
             background-color: #FFEBEE;
         } 
-        
+        .form-group {
+            margin: 10px;
+        }
         header {
             display: flex;
             justify-content: space-between;
             align-items: center;
-                }
-        .success-mes{
-            color: white;
-            font: bold;
-            background-color: #FF78C9;
-            text-align: center;
-            margin-top: 15px;
-            padding: 10px;
-            border-radius: 5px;
-        }
-        .error{
-            color: red;
-            font-size: 0.9em;
-            margin-top: 5px;
         }
         label {
             display: block;
@@ -130,22 +122,12 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
             min-height: 150px;
         }
         .btn {
-            display: inline-block;
-            padding: 8px 16px;
-            background-color: #4361ee;
-            color: white;
-            text-decoration: none;
-            border-radius: 4px;
-            border: none;
-            cursor: pointer;
-        }
-        .btn:hover {
-            background-color: #3a56d4;
+            margin: 10px;
         }
     </style>
 </head>
 <body>
-    <div class="container">
+    <div class="container highlighted">
         <h1>Редактирование пользователя #<?= $userId ?></h1>
         <a href="admin.php">Назад к списку</a>
 
@@ -205,7 +187,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
                 <label for="contract" style="display: inline;">Согласие на обработку данных</label>
             </div>
 
-            <button type="submit" class="btn">Сохранить изменения</button>
+            <button type="submit" class="btn btn-primary">Сохранить изменения</button>
         </form>
     </div>
 </body>
