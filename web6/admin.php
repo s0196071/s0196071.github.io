@@ -6,6 +6,17 @@ if (!isset($_SERVER['PHP_AUTH_USER'])) {
     die("Требуется авторизация");
 }
 
+// 1. Подключение к БД
+$db = new PDO("mysql:host=localhost;dbname=u82389", 'u82389', '3736104', [
+    PDO::ATTR_ERRMODE => PDO::ERRMODE_EXCEPTION
+]);
+
+// 2. Проверка авторизации
+if (!isset($_SESSION['admin_logged_in'])) {
+    header('Location: admin_logout.php');
+    exit();
+}
+
 $username = $_SERVER['PHP_AUTH_USER'];
 $password = $_SERVER['PHP_AUTH_PW'];
 
@@ -17,17 +28,6 @@ $admin = $stmt->fetch();
 if (!$admin || !password_verify($password, $admin['password_hash'])) {
     die("Неверные учетные данные");
 }
-
-// 1. Проверка авторизации
-if (!isset($_SESSION['admin_logged_in'])) {
-    header('Location: admin_logout.php');
-    exit();
-}
-
-// 2. Подключение к БД
-$db = new PDO("mysql:host=localhost;dbname=u82389", 'u82389', '3736104', [
-    PDO::ATTR_ERRMODE => PDO::ERRMODE_EXCEPTION
-]);
 
 // 3. Обработка удаления
 if (isset($_GET['delete'])) {
