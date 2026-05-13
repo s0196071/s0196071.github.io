@@ -50,9 +50,6 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
         $error = 'Ошибка базы данных';
         $debug_info .= "Ошибка БД: " . $e->getMessage() . "\n";
     }
-
-    // Логируем отладочную информацию
-    error_log($debug_info);
 }
 ?>
 
