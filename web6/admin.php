@@ -180,6 +180,10 @@ $stats = $db->query("
         <div class="alert success">Пользователь успешно удален!</div>
         <?php endif; ?>
 
+        <?php if (isset($_GET['updated'])): ?>
+        <div class="alert success">Изменения успешно сохранены!</div>
+        <?php endif; ?>
+
         <h2>Статистика по языкам</h2>
         <div class="stats-grid">
             <?php foreach ($stats as $stat): ?>
