@@ -51,6 +51,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
         $debug_info .= "Ошибка БД: " . $e->getMessage() . "\n";
     }
 }
+    header("Content-Security-Policy: default-src 'self'; script-src 'self' https://cdn.jsdelivr.net; style-src 'self' 'unsafe-inline' https://cdn.jsdelivr.net;");
 ?>
 
 <!DOCTYPE html>
