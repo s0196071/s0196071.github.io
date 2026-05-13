@@ -73,6 +73,10 @@ $userLanguages = $langStmt->fetchAll(PDO::FETCH_COLUMN);
 
 // Обработка отправки формы
 if ($_SERVER['REQUEST_METHOD'] == 'POST') {
+    if (!isset($_POST['csrf_token']) || $_POST['csrf_token'] !== $_SESSION['csrf_token']) {
+        die('CSRF-ошибка: недействительный токен.');
+    }    
+    
     $errors = [];
     $allowedLanguages = ['Pascal', 'C', 'C++', 'JavaScript', 'PHP', 'Python', 'Java', 'Haskel', 'Clojure', 'Prolog', 'Scala', 'Go'];
 
