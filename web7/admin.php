@@ -220,7 +220,16 @@ $stats = $db->query("
                         <td><?= $user['gender'] == 'male' ? 'Мужской' : 'Женский' ?></td>
                         <td>
                             <a href="edit_user.php?id=<?= $user['id'] ?>" class="action-btn edit-btn"><img src="images/2.png" alt="edit"></a>
-                            <a href="admin.php?delete=<?= $user['id'] ?>" class="action-btn delete-btn" onclick="return confirm('Удалить этого пользователя?')"><img src="images/1.png" alt="delete"></a>
+                            <form method="POST" action="admin.php" style="display:inline;">
+                                <input type="hidden" name="action" value="delete">
+                                <input type="hidden" name="user_id" value="<?= $user['id'] ?>">
+                                <input type="hidden" name="csrf_token" value="<?= $_SESSION['csrf_token'] ?>">
+                                <button type="submit" class="action-btn delete-btn" 
+                                        onclick="return confirm('Удалить этого пользователя?')" 
+                                        style="background:none; border:none; padding:0; cursor:pointer;">
+                                    <img src="images/1.png" alt="delete">
+                                </button>
+                            </form>
                         </td>
                     </tr>
                 <?php endforeach; ?>
