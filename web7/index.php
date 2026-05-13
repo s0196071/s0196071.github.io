@@ -231,6 +231,7 @@ header("Content-Security-Policy: default-src 'self'; script-src 'self' https://c
             </div>
         <?php endif; ?>
         <form method="POST">
+            <input type="hidden" name="csrf_token" value="<?= $_SESSION['csrf_token'] ?>">
             <div class="mb-3">
                 <label for="fio" class="form-label">ФИО:</label> 
                 <input class="form-control" id="fio" aria-describedby="format" name="fio" type="text"
