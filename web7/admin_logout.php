@@ -129,9 +129,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && $attempts < 5) {
         <?php endif; ?>
 
         <?php if ($attempts >= 5): ?>
-            <div class="attempts-warning">
-                <i class="fas fa-clock"></i> Превышено количество попыток. Подождите 5 минут.
-            </div>
+            <div class="attempts-warning">Превышено количество попыток. Подождите 5 минут.</div>
         <?php else: ?>
             <form method="POST">
                 <div class="form-group">
