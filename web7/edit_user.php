@@ -155,6 +155,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
             </a>
         </header>
         <form method="POST">
+            <input type="hidden" name="csrf_token" value="<?= $_SESSION['csrf_token'] ?>">
             <div class="form-group">
                 <label for="fio">ФИО:</label>
                 <input type="text" id="fio" name="fio" value="<?= htmlspecialchars($user['fio']) ?>" required>
