@@ -65,20 +65,22 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
             // Хеширование пароля
             $passwordHash = password_hash($password, PASSWORD_BCRYPT);
 
-            try {
-                // Создание аккаунта
-                $stmt = $db->prepare("INSERT INTO applications
+        try {
+            // Создание аккаунта
+            $stmt = $db->prepare("INSERT INTO applications
                     (login, password_hash, contract_agreed)
                     VALUES (?, ?, 0)");
 
-                $stmt->execute([
-                    $login,
-                    $passwordHash
-                ]);
+            $stmt->execute([
+                $login,
+                $passwordHash
+            ]);
 
-                $success = true;
+            $success = true;
             } catch (PDOException $e) {
-                $error = 'Ошибка регистрации: ' . $e->getMessage();
+                // Логируем только код ошибки, без деталей запроса
+                error_log('Registration failed: ' . $e->getCode());
+                $error = 'Ошибка регистрации. Попробуйте позже.';
             }
         }
     }
