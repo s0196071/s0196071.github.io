@@ -1,6 +1,12 @@
 <?php
 // Проверка авторизации
-require_once 'admin_auth.php';
+require_once 'session.php';
+
+// Проверка, что администратор авторизован
+if (!isset($_SESSION['admin_logged_in'])) {
+    header('Location: admin_logout.php');
+    exit();
+}
 
 // Подключение к БД
 $db = new PDO("mysql:host=localhost;dbname=u82389", 'u82389', '3736104', [
