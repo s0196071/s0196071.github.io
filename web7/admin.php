@@ -31,8 +31,13 @@ if (!$admin || !password_verify($password, $admin['password_hash'])) {
 }
 
 // 3. Обработка удаления
-if (isset($_GET['delete'])) {
-    $id = (int)$_GET['delete'];
+if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['action']) && $_POST['action'] === 'delete') {
+    // Проверка CSRF-токена
+    if (!isset($_POST['csrf_token']) || $_POST['csrf_token'] !== $_SESSION['csrf_token']) {
+        die('CSRF-ошибка: недействительный токен.');
+    }
+    
+    $id = (int)$_POST['user_id'];
     try {
         $db->beginTransaction();
         $db->prepare("DELETE FROM application_languages WHERE application_id = ?")->execute([$id]);
@@ -42,7 +47,9 @@ if (isset($_GET['delete'])) {
         exit();
     } catch (PDOException $e) {
         $db->rollBack();
-        die("Ошибка при удалении: " . $e->getMessage());
+        // Безопасное логирование
+        error_log('Delete failed: ' . $e->getCode());
+        die("Ошибка при удалении. Попробуйте позже.");
     }
 }
 
