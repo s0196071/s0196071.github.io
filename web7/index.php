@@ -204,9 +204,8 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 
     } catch (PDOException $e) {
         $db->rollBack();
-        setErrorCookie('db', 'Ошибка сохранения: '.$e->getMessage());
-        header('Location: index.php');
-        exit();
+        error_log('Save error: ' . $e->getCode());
+        setErrorCookie('db', 'Ошибка сохранения. Попробуйте позже.');
     }
 }
 
