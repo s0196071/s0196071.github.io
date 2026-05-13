@@ -6,14 +6,6 @@ $db = new PDO("mysql:host=localhost;dbname=u82389", 'u82389', '3736104', [
     PDO::ATTR_ERRMODE => PDO::ERRMODE_EXCEPTION
 ]);
 
-// Экстренный сброс пароля (доступен только по специальной ссылке)
-if (isset($_GET['emergency_reset'])) {
-    $new_hash = password_hash('admin123', PASSWORD_BCRYPT);
-    $stmt = $db->prepare("UPDATE admin_users SET password_hash = ? WHERE username = 'admin'");
-    $stmt->execute([$new_hash]);
-    die("Пароль сброшен. Новый пароль: admin123");
-}
-
 $error = '';
 $attempts = $_SESSION['login_attempts'] ?? 0;
 
@@ -162,15 +154,6 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && $attempts < 5) {
         <div class="register-link">
             <a href="login.php">Войти как пользователь</a>
         </div>
-        
-        <!-- Ссылка для экстренного сброса (должна быть удалена в продакшене) -->
-        <?php if (isset($_GET['debug'])): ?>
-            <div style="margin-top: 2rem; text-align: center; font-size: 0.8rem;">
-                <a href="admin_login.php?emergency_reset=1" style="color: var(--error);">
-                    Экстренный сброс пароля (admin123)
-                </a>
-            </div>
-        <?php endif; ?>
     </div>
 </body>
 </html>
