@@ -44,6 +44,7 @@ $stats = $db->query("
     GROUP BY pl.name
     ORDER BY user_count DESC
 ")->fetchAll();
+header("Content-Security-Policy: default-src 'self'; script-src 'self' https://cdn.jsdelivr.net; style-src 'self' 'unsafe-inline' https://cdn.jsdelivr.net;");
 ?>
 
 <!DOCTYPE html>
