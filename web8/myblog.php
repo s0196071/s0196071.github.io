@@ -77,7 +77,7 @@ unset($_SESSION['cooperation_errors'], $_SESSION['cooperation_data']);
             <div class="cartoons">
                 <div class="fact-one">
                     <img src="fact-one.jpg" alt="fact-one">
-                    <div class="one"><span>Меня зовут Виктория, мне 19 лет. Учусь в КубГУ на программиста (2 курс) по специальности "Прикладная информатика", и я довольно творческая и разносторонняя личность.</span></div>
+                    <div class="one"><span>Меня зовут Виктория, мне 20 лет. Учусь в КубГУ на программиста (2 курс) по специальности "Прикладная информатика", и я довольно творческая и разносторонняя личность.</span></div>
                 </div>
                 <div class="fact-two">
                     <div class="two"><span>Я - модель, посещаю модельную школу больше 6 месяцев и принимаю участие в профессиональных съёмках, а также участвовала в модном показе в г. Краснодар. Это моё первое достижение в этой сфере!</span></div>
@@ -212,7 +212,7 @@ unset($_SESSION['cooperation_errors'], $_SESSION['cooperation_data']);
                     <a href="https://youtube.com/@miviculys?si=jSJeBnrJN9ZZ2K5q"><img class="my-youtube" src="youtube.jpg" alt="youtube"></a>
                     <a href="https://www.tiktok.com/@miviculys?_r=1&_t=ZN-92TDErruiAA"><img class="my-tiktok" src="tiktok.jpg" alt="tiktok"></a>
                 </div>
-                <div class="word-end">&copy; Скворцова Виктория, 2025 </div>
+                <div class="word-end">&copy; Скворцова Виктория, 2026 </div>
             </div>
         </footer>
         
