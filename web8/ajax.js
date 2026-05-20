@@ -29,15 +29,18 @@ document.addEventListener('DOMContentLoaded', function() {
         })
         .then(response => response.json())
         .then(result => {
+            const messagesContainer = document.querySelector('.main-form .form-messages');
+            if (!messagesContainer) return;
+    
+            // Очищаем предыдущие сообщения
+            messagesContainer.innerHTML = '';
+    
             if (result.success) {
                 let message = 'Заявка успешно отправлена!';
                 if (result.login) {
-                    message += `\nВаш логин: ${result.login}\nПароль: ${result.password}\nПрофиль: ${result.profile_url}`;
+                    message += `<br><br>Ваш логин: <strong>${result.login}</strong><br>Пароль: <strong>${result.password}</strong><br><a href="${result.profile_url}">Перейти в профиль</a>`;
                 }
-                const div = document.createElement('div');
-                div.className = 'alert alert-success';
-                div.textContent = message;
-                form.parentNode.insertBefore(div, form.nextSibling);
+                messagesContainer.innerHTML = `<div class="alert alert-success">${message}</div>`;
                 form.reset();
             } else if (result.errors) {
                 for (const [field, msg] of Object.entries(result.errors)) {
@@ -50,12 +53,15 @@ document.addEventListener('DOMContentLoaded', function() {
                     }
                 }
             } else {
-                alert(result.message || 'Произошла ошибка');
+                messagesContainer.innerHTML = `<div class="alert alert-danger">${result.message || 'Произошла ошибка'}</div>`;
             }
         })
         .catch(error => {
             console.error('Fetch error:', error);
-            alert('Ошибка соединения с сервером');
+            const messagesContainer = document.querySelector('.main-form .form-messages');
+            if (messagesContainer) {
+                messagesContainer.innerHTML = `<div class="alert alert-danger">Ошибка соединения с сервером</div>`;
+            }
         });
     });
 });
