@@ -81,6 +81,7 @@ display: flex;
             align-items: center;
             height: 100vh;
             margin: 0;
+            font-family: Prata;
         }
         .register-container {
     background-color: #FFEBEE;
