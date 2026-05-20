@@ -139,7 +139,6 @@ footer
 .stripe-one, .stripe-two
 {
     display: flex;
-    justify-content: center;
     margin: 0;
     height: 2px;
     background-color: #DAD5E5;
