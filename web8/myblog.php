@@ -190,20 +190,19 @@ unset($_SESSION['cooperation_errors'], $_SESSION['cooperation_data']);
                             <button type="submit" class="btn">Отправить</button>
                         </div>
                     </form>
-
-                    <div class="form-messages">
-                        <!-- Блок для вывода общих сообщений и новых учётных данных (без JS) -->
-                        <?php if ($successMessage): ?>
-                            <div class="alert alert-success"><?= $successMessage ?></div>
-                            <?php if ($newCredentials): ?>
-                                <div class="alert alert-info">
-                                    Ваш логин: <strong><?= htmlspecialchars($newCredentials['login']) ?></strong><br>
-                                    Пароль: <strong><?= htmlspecialchars($newCredentials['password']) ?></strong><br>
-                                    <a href="<?= htmlspecialchars($newCredentials['profile_url']) ?>">Перейти в профиль</a>
-                                </div>
-                            <?php endif; ?>
+                </div>
+                <div class="form-messages">
+                    <!-- Блок для вывода общих сообщений и новых учётных данных (без JS) -->
+                    <?php if ($successMessage): ?>
+                        <div class="alert alert-success"><?= $successMessage ?></div>
+                        <?php if ($newCredentials): ?>
+                            <div class="alert alert-info">
+                                Ваш логин: <strong><?= htmlspecialchars($newCredentials['login']) ?></strong><br>
+                                Пароль: <strong><?= htmlspecialchars($newCredentials['password']) ?></strong><br>
+                                <a href="<?= htmlspecialchars($newCredentials['profile_url']) ?>">Перейти в профиль</a>
+                            </div>
                         <?php endif; ?>
-                    </div>
+                    <?php endif; ?>
                 </div>
             </div>
             <div class="stripe-two"></div>
