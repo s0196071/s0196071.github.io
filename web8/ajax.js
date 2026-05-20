@@ -15,7 +15,7 @@ document.addEventListener('DOMContentLoaded', function() {
             name: formData.get('name') || '',
             email: formData.get('email') || '',
             phone: formData.get('phone') || '',
-            comment: formData.get('message') || '',
+            comment: formData.get('comment') || '',
             agreement: formData.has('agreement')
         };
 
