@@ -1,5 +1,26 @@
+<?php
+session_start();
+$isLoggedIn = isset($_SESSION['user_id']);
+
+// Получение сообщений из предыдущей отправки (без JS)
+$successMessage = '';
+$newCredentials = null;
+if (isset($_GET['success'])) {
+    $successMessage = 'Заявка успешно отправлена!';
+    if (isset($_GET['login'])) {
+        $newCredentials = [
+            'login' => $_GET['login'],
+            'password' => $_GET['password'],
+            'profile_url' => $_GET['profile_url']
+        ];
+    }
+}
+$cooperationErrors = $_SESSION['cooperation_errors'] ?? [];
+$cooperationData = $_SESSION['cooperation_data'] ?? [];
+unset($_SESSION['cooperation_errors'], $_SESSION['cooperation_data']);
+?>
+
 <!DOCTYPE html>
-  
 <html>
     <head>
         <title>my blog</title>
@@ -20,7 +41,13 @@
                     <li><a href="#about-me">Обо мне</a></li>
                     <li><a href="#main-contacts">Контакты</a></li>
                     <li><a href="#cooperation">Сотрудничество</a></li>
-                    <li><a href="#register">Авторизация</a></li>
+                    <?php if ($isLoggedIn): ?>
+                        <li><a href="user.php">Профиль</a></li>
+                        <li><a href="logout.php">Выйти</a></li>
+                    <?php else: ?>
+                        <li><a href="login.php">Войти</a></li>
+                        <li><a href="register.php">Регистрация</a></li>
+                    <?php endif; ?>
                 </ul>
             </nav>
         </header>
@@ -117,37 +144,64 @@
                     </div>
                 </div>
                 <div class="main-form" id="cooperation">
-                    <form id="my-sweet-form" action="https://formcarry.com/s/2Uzb6krMzij" method="POST">
+                    <form id="my-sweet-form" action="cooperation.php" method="POST">
                         <div>
-                        <label for="name" class="form-label"></label> 
-                        <input class="form-control" id="name" name="name" type="text" placeholder="Ваше имя" autocomplete="name">
+                          <label for="name" class="form-label"></label> 
+                          <input class="form-control" id="name" name="name" type="text" placeholder="Ваше имя" autocomplete="name" value="<?= htmlspecialchars($cooperationData['name'] ?? '') ?>">
+                          <?php if (isset($cooperationErrors['name'])): ?>
+                            <div class="error-message text-danger"><?= htmlspecialchars($cooperationErrors['name']) ?></div>
+                          <?php endif; ?>
                         </div>
 
                         <div>
                             <label for="email" class="form-label"></label>
-                            <input class="form-control" id="email" name="email" type="email" placeholder="Email" autocomplete="email">
+                            <input class="form-control" id="email" name="email" type="email" placeholder="Email" autocomplete="email" value="<?= htmlspecialchars($cooperationData['email'] ?? '') ?>">
+                            <?php if (isset($cooperationErrors['email'])): ?>
+                              <div class="error-message text-danger"><?= htmlspecialchars($cooperationErrors['email']) ?></div>
+                            <?php endif; ?>
                         </div>
 
                         <div>
                             <label for="name" class="form-label"></label>
-                            <input class="form-control" id="tel" name="tel" type="tel" placeholder="Номер телефона" inputmode="numeric">
+                            <input class="form-control" id="tel" name="tel" type="tel" placeholder="Номер телефона" inputmode="numeric" value="<?= htmlspecialchars($cooperationData['tel'] ?? '') ?>">
+                            <?php if (isset($cooperationErrors['tel'])): ?>
+                              <div class="error-message text-danger"><?= htmlspecialchars($cooperationErrors['tel']) ?></div>
+                            <?php endif; ?>
                         </div>
 
                         <div>
                             <label for="message" class="form-label"></label>
-                            <textarea class="form-control" id="message" name="message" placeholder="Ваш комментарий"></textarea>
+                            <textarea class="form-control" id="message" name="message" placeholder="Ваш комментарий" value="<?= htmlspecialchars($cooperationData['message'] ?? '') ?>"></textarea>
+                            <?php if (isset($cooperationErrors['message'])): ?>
+                              <div class="error-message text-danger"><?= htmlspecialchars($cooperationErrors['message']) ?></div>
+                            <?php endif; ?>
                         </div>
 
                         <div class="main-answer">
-                            <input class="form-check-input" type="checkbox" id="checkbox" name="checkbox">
+                            <input class="form-check-input" type="checkbox" id="agreement" name="agreement" <?= !empty($cooperationData['agreement']) ? 'checked' : '' ?>>
                             <label class="form-check-label" for="checkbox"></label> 
                             <div class="agree">Отправляя заявку, я даю согласие <span class="red-text">на обработку своих персональных данных*</span></div>
+                            <?php if (isset($cooperationErrors['agreement'])): ?>
+                              <div class="error-message text-danger"><?= htmlspecialchars($cooperationErrors['agreement']) ?></div>
+                            <?php endif; ?>
                         </div>
 
                         <div>
                             <button type="submit" class="btn">Отправить</button>
                         </div>
                     </form>
+
+                    <!-- Блок для вывода общих сообщений и новых учётных данных (без JS) -->
+                    <?php if ($successMessage): ?>
+                        <div class="alert alert-success"><?= $successMessage ?></div>
+                        <?php if ($newCredentials): ?>
+                            <div class="alert alert-info">
+                                Ваш логин: <strong><?= htmlspecialchars($newCredentials['login']) ?></strong><br>
+                                Пароль: <strong><?= htmlspecialchars($newCredentials['password']) ?></strong><br>
+                                <a href="<?= htmlspecialchars($newCredentials['profile_url']) ?>">Перейти в профиль</a>
+                            </div>
+                        <?php endif; ?>
+                    <?php endif; ?>
                 </div>
             </div>
             <div class="stripe-two"></div>
