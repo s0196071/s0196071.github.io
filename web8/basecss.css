@@ -11,6 +11,12 @@
     width: 100%;
     margin-top: 70px;
 }
+.main-form{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 300px;
+}
 .main-header
 {
     display: none;
