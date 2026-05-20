@@ -20,6 +20,7 @@
                     <li><a href="#about-me">Обо мне</a></li>
                     <li><a href="#main-contacts">Контакты</a></li>
                     <li><a href="#cooperation">Сотрудничество</a></li>
+                    <li><a href="#register">Авторизация</a></li>
                 </ul>
             </nav>
         </header>
@@ -39,6 +40,7 @@
                     <li><a href="#about-me">Обо мне</a></li>
                     <li><a href="#main-contacts">Контакты</a></li>
                     <li><a href="#cooperation">Сотрудничество</a></li>
+                    <li><a href="#register">Авторизация</a></li>
                 </ul>
             </nav>
         </div>
