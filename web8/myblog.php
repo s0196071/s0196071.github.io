@@ -163,18 +163,18 @@ unset($_SESSION['cooperation_errors'], $_SESSION['cooperation_data']);
 
                         <div>
                             <label for="name" class="form-label"></label>
-                            <input class="form-control" id="phone" name="phone" type="tel" placeholder="Номер телефона" inputmode="numeric" value="<?= htmlspecialchars($cooperationData['tel'] ?? '') ?>">
-                            <?php if (isset($cooperationErrors['tel'])): ?>
-                              <div class="error-message text-danger"><?= htmlspecialchars($cooperationErrors['tel']) ?></div>
+                            <input class="form-control" id="phone" name="phone" type="tel" placeholder="Номер телефона" inputmode="numeric" value="<?= htmlspecialchars($cooperationData['phone'] ?? '') ?>">
+                            <?php if (isset($cooperationErrors['phone'])): ?>
+                              <div class="error-message text-danger"><?= htmlspecialchars($cooperationErrors['phone']) ?></div>
                             <?php endif; ?>
                         </div>
 
                         <div>
-                            <label for="message" class="form-label"></label>
-                            <textarea class="form-control" id="comment" name="comment" placeholder="Ваш комментарий" value="<?= htmlspecialchars($cooperationData['message'] ?? '') ?>"></textarea>
-                            <?php if (isset($cooperationErrors['comment'])): ?>
-                              <div class="error-message text-danger"><?= htmlspecialchars($cooperationErrors['comment']) ?></div>
-                            <?php endif; ?>
+                            <label for="comment" class="form-label"></label>
+                            <textarea class="form-control" id="comment" name="comment" placeholder="Ваш комментарий"><?= htmlspecialchars($cooperationData['comment'] ?? '') ?></textarea>
+                                <?php if (isset($cooperationErrors['comment'])): ?>
+                                    <div class="error-message text-danger"><?= htmlspecialchars($cooperationErrors['comment']) ?></div>
+                                <?php endif; ?>
                         </div>
 
                         <div class="main-answer">
