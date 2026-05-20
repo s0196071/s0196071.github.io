@@ -99,7 +99,6 @@ display: flex;
         label {
             display: block;
             margin-bottom: 8px;
-            font-weight: bold;
         }
         input {
             width: 100%;
