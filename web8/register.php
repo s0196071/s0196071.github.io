@@ -147,10 +147,7 @@ display: flex;
             <div style="text-align: center; margin: 1rem 0; color: #FF78C9;">
                 Регистрация прошла успешно!
             </div>
-            <div style="text-align: center; margin: 1rem 0; color: #FF78C9;">
-                Вы будете перенаправлены на вход в систему
-            </div>
-            <meta http-equiv="refresh" content="5; URL=/s019/web5/login.php">
+            <meta http-equiv="refresh" content="3; URL=/s019/web8/myblog.php">
         <?php else: ?>
             <form method="POST">
                 <div class="form-group">
