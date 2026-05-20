@@ -221,6 +221,6 @@ unset($_SESSION['cooperation_errors'], $_SESSION['cooperation_data']);
         <script src="javascript1.js"></script>
         <script src="javascript2.js"></script>
         <script src="javascript3.js"></script>
-        <script src="https://carrier.formcarry.com/js/v1.js"></script>
+        <script src="ajax.js"></script>
     </body>
 </html>
