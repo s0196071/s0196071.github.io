@@ -99,6 +99,7 @@ footer
     margin-top: 50px;
     align-items: center;
     gap: 20px;
+    justufy-content: center;
 }
 .main-footer
 {
