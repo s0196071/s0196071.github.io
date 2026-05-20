@@ -297,6 +297,10 @@ body
     opacity: 40%;
     object-fit: cover;  
 }
+.main-success{
+    display: flex;
+    flex-direction: column;
+}
 @media (min-width: 1024px)
 {
     .container, .stripe-one
