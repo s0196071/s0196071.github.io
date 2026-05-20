@@ -39,7 +39,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
                 $debug_info .= "Авторизация прошла успешно\n";
 
                 // Перенаправляем после успешного входа
-                header('Location: index.php');
+                header('Location: user.php');
                 exit();
             } else {
                 $debug_info .= "Ошибка: неверные учетные данные\n";
