@@ -85,9 +85,38 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     <meta charset="UTF-8">
     <title>Профиль</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet">
+    <style>
+        .container{
+            width: 75%;
+            padding: 20px;
+            margin: 0 auto;
+            margin-top: 50px;
+            margin-bottom: 50px;
+            border-radius: 8px;
+        }
+        .highlighted {
+            background-color: #FFEBEE;
+        } 
+        a {
+            text-decoration: none;
+        }
+        .btn{
+            margin-right: 10px;
+        }
+        .admin-btn {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            color: white;
+            padding: 8px 16px;
+            border-radius: 8px;
+            text-decoration: none;
+            transition: all 0.3s;
+        }
+    </style>
 </head>
 <body>
-    <div class="container mt-5">
+    <div class="highlighted container mt-5">
         <h2>Профиль пользователя</h2>
         <p>Логин: <strong><?= htmlspecialchars($user['login']) ?></strong> (нельзя изменить)</p>
 
