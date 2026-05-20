@@ -162,7 +162,7 @@ unset($_SESSION['cooperation_errors'], $_SESSION['cooperation_data']);
                         </div>
 
                         <div>
-                            <label for="name" class="form-label"></label>
+                            <label for="phone" class="form-label"></label>
                             <input class="form-control" id="phone" name="phone" type="tel" placeholder="Номер телефона" inputmode="numeric" value="<?= htmlspecialchars($cooperationData['phone'] ?? '') ?>">
                             <?php if (isset($cooperationErrors['phone'])): ?>
                               <div class="error-message text-danger"><?= htmlspecialchars($cooperationErrors['phone']) ?></div>
