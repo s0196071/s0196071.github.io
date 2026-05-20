@@ -62,7 +62,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB" crossorigin="anonymous">
-    <title>Вход в систему</title>
+    <title>Вход</title>
     <style>
         body {
             margin: 0;
@@ -89,7 +89,6 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
         label {
             display: block;
             margin-bottom: 8px;
-            font-weight: bold;
         }
         input[type="text"],
         input[type="password"] {
@@ -125,7 +124,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 </head>
 <body>
     <div class="login-container">
-        <h2>Вход в систему</h2>
+        <h2>Вход</h2>
 
         <?php if ($error): ?>
             <div class="error"><?= htmlspecialchars($error) ?></div>
