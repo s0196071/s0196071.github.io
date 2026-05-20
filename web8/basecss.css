@@ -297,9 +297,18 @@ body
     opacity: 40%;
     object-fit: cover;  
 }
-.main-success{
-    display: flex;
-    flex-direction: column;
+.form-messages {
+    width: 100%;
+    margin-top: 20px;
+    text-align: center;
+    word-wrap: break-word;
+}
+
+.form-messages .alert {
+    display: inline-block;     
+    text-align: left;        
+    margin: 10px auto;
+    max-width: 100%;         
 }
 @media (min-width: 1024px)
 {
