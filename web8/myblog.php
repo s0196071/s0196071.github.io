@@ -171,9 +171,9 @@ unset($_SESSION['cooperation_errors'], $_SESSION['cooperation_data']);
 
                         <div>
                             <label for="message" class="form-label"></label>
-                            <textarea class="form-control" id="message" name="message" placeholder="Ваш комментарий" value="<?= htmlspecialchars($cooperationData['message'] ?? '') ?>"></textarea>
-                            <?php if (isset($cooperationErrors['message'])): ?>
-                              <div class="error-message text-danger"><?= htmlspecialchars($cooperationErrors['message']) ?></div>
+                            <textarea class="form-control" id="comment" name="comment" placeholder="Ваш комментарий" value="<?= htmlspecialchars($cooperationData['message'] ?? '') ?>"></textarea>
+                            <?php if (isset($cooperationErrors['comment'])): ?>
+                              <div class="error-message text-danger"><?= htmlspecialchars($cooperationErrors['comment']) ?></div>
                             <?php endif; ?>
                         </div>
 
