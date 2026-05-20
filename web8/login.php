@@ -3,7 +3,7 @@ session_start();
 
 // Если уже авторизован - перенаправляем на главную
 if (isset($_SESSION['user_id'])) {
-    header('Location: index.php');
+    header('Location: user.php');
     exit();
 }
 
